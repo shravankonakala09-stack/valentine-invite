@@ -11,9 +11,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       margin: 0;
+      padding: 10px;
     }
 
     .card {
@@ -24,16 +25,22 @@
       text-align: center;
       max-width: 450px;
       width: 90%;
+
+      max-height: 90vh;    /* Prevent card from exceeding viewport */
+      overflow-y: auto;    /* Scroll if content is too tall */
     }
 
     h1 {
       color: #ff4d6d;
+      margin-bottom: 15px;
     }
 
     img {
       width: 100%;
       border-radius: 15px;
       margin: 15px 0;
+      max-height: 300px;    /* Prevent oversized images */
+      object-fit: cover;    /* Maintain aspect ratio */
     }
 
     button {
@@ -72,6 +79,21 @@
       line-height: 1.6;
     }
 
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 24px;  /* Adjust heading on small screens */
+      }
+
+      .greeting {
+        font-size: 16px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -81,8 +103,8 @@
     <h1>Memory Challenge 💕</h1>
     <p>Can you guess where this picture was taken?</p>
 
-    <!-- Replace image below with your trip image -->
-    <img src="trip.jpg">
+    <!-- Trip image -->
+    <img src="trip.jpg" alt="Trip Picture">
 
     <div>
       <button class="optionBtn" onclick="checkAnswer(false)">Pykara Lake</button>
@@ -92,7 +114,6 @@
 
     <p id="quizMessage"></p>
   </div>
-
 
   <!-- VALENTINE GREETING CARD -->
   <div class="card hidden" id="valentineCard">
@@ -107,7 +128,7 @@
     </div>
 
     <!-- Valentine Image -->
-    <img src="propose.jpg">
+    <img src="propose.jpg" alt="Propose Picture">
 
     <h2>Will You Be My Valentine? 💖</h2>
 
@@ -120,7 +141,6 @@
       You just made my heart the happiest ❤️🥰
     </p>
   </div>
-
 
   <script>
     function checkAnswer(correct) {
