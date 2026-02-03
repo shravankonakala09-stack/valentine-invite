@@ -82,7 +82,7 @@
     <p>Can you guess where this picture was taken?</p>
 
     <!-- Replace image below with your trip image -->
-    <<img src="IMG_20220812_132955.jpg">
+    <img src="IMG_20220812_132955.jpg">
 
     <div>
       <button class="optionBtn" onclick="checkAnswer(false)">Pykara Lake</button>
@@ -106,11 +106,14 @@
       I want to create many more memories with you...
     </div>
 
+    <!-- Valentine Image -->
+    <img src="IMG_20220812_133854.jpg" alt="Valentine Memory">
+
     <h2>Will You Be My Valentine? 💖</h2>
 
     <div style="position:relative;height:80px;">
       <button id="yesBtn" onclick="sayYes()">Yes 💘</button>
-      <button id="noBtn" onmouseover="moveNo()">No 🙈</button>
+      <button id="noBtn" onclick="noAnswer()">No 🙈</button>
     </div>
 
     <p id="finalMessage" class="hidden" style="color:#ff4d6d;font-size:20px;margin-top:15px;">
@@ -133,11 +136,9 @@
       document.getElementById("finalMessage").classList.remove("hidden");
     }
 
-    function moveNo() {
-      const noBtn = document.getElementById("noBtn");
-      const randomX = Math.random() * 200 - 100;
-      const randomY = Math.random() * 50 - 25;
-      noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    function noAnswer() {
+      alert("Sorry, that's not an option 😌❤️");
+    }px, ${randomY}px)`;
     }
   </script>
 
